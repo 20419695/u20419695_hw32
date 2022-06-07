@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col col-sm-8" style="border:solid;border-block-color:black;background-color:tan">
+            <h1>FileCo</h1>
+            <p>
+                This is a system for files,images and videos
+            </p>
+        </div>
+        <div class="col col-sm-8" style="background-color:lemonchiffon;border:solid;border-block-color:black">
+            <h1>Description</h1>
+            <p>
+                You will be able to delete and download files as well as upload them.
+                <br />
+                You are able to see images and playable videos.
+                <br />
+                You will also be able to see a biography and a picture of myself.
+            </p>
+        </div>
+
+        <div class="col col-md-auto" style="background-color:lemonchiffon;border:solid;border-block-color:black"  >
+            <h2>Option Select</h2>
+
+
+            @using(Html.BeginForm("FileUpload","Home",FormMethod.Post, new {enctype = "multipart/form-data" }))
+            {
+                <div>
+                    Document @Html.RadioButton("FileType","Document")<br/>
+                    Images @Html.RadioButton("FileType", "Images")<br/>
+                    Video @Html.RadioButton("FileType", "Videos")<br/>
+
+                </div>
+                @Html.TextBox("uploadedFile", "", new { type = "file" });
+                <br />
+                <input style="background-color:tan" type="submit" class="btn" name="submit"/>
+            }
+        </div>
+    </div>
+   
+
+</div>
+
+   
